@@ -6,4 +6,4 @@ https://webchat.freenode.net/?channels=openstack-vitrage
 
 http://eavesdrop.openstack.org/irclogs/ 
 
-http://eavesdrop.openstack.org/irclogs/%23openstack-vitrage/index.html
+https://webchat.freenode.net/?channels=openstack-dns%hoango%amen622342A#

@@ -1,0 +1,19 @@
+#openstack-vitrage: (Meeting topic: vitrage)
+[14:08] == hoango___ [dce77a11@gateway/web/freenode/ip.220.231.122.17] has joined #openstack-vitrage
+[14:11] <hoango___> i flow https://docs.openstack.org/vitrage/latest/contributor/mistral-config.html , but got problem:
+[14:13] <hoango___> in example, how do i pass the variable "hostname"  to execute_mistral is the host-has-alarm, not the specific "host1" like example.
+[14:15] == ifat_afek [~ifat_afek@194.90.7.242] has joined #openstack-vitrage
+[14:17] <ifat_afek> hoango___: hi
+[14:17] <hoango___> yes?
+[14:17] <ifat_afek> regarding Mistral: the link that you sent does not include the right example, I think. Please look here:  https://docs.openstack.org/vitrage/latest/contributor/vitrage-templates.html
+[14:17] <ifat_afek> Look for the example with get_attr(), I believe this is what you need
+[14:18] <hoango___> oh
+[14:18] <hoango___> but is function in queens version?
+[14:19] <ifat_afek> Let me know if you think it could work. And I’ll update the documentation in mistral-config link
+[14:19] <hoango___> i have vitrage in queens version. can i do get_attr () ?
+[14:19] <ifat_afek> Yes, it is implemented in Queens
+[14:20] <ifat_afek> but you must use Vitrage template version 2
+[14:20] <hoango___> thanks. i will try this.
+[14:20] <ifat_afek> ok, let us know if you have other issues
+[14:21] <hoango___> can i contract with u by email?
+[14:26] <ifat_afek> hoango___: of course. you can email me directly ifat.afek@nokia.com, or use the openstack-discuss mailing list with a [vitrage] tag in the title

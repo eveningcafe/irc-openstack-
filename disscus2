@@ -1,0 +1,45 @@
+Dear Iflat Afek,
+I try doing use case with vitrage notification execute mistral but got a problem:
+
+
+
+In my use case, i try evacuate host with 2 instance "vm_1" and "vm_2" on it, when host have alarm -then evacuate instance:
+```
+
+condition: nova_compute_down_on_host and host_contain_instance
+actions:
+
+  - action:
+      action_type: execute_mistral
+      properties:
+         workflow: evacuate_vm
+         input:
+            vm_name: get_attr(instance, name)
+
+```
+
+
+
+I expect mistral workflow will then be: execute workflow 2 times with input:
+
+```vm_name: vm_1```  and  ```vm_name: vm_2``` 
+
+
+
+But i alway get : mistral execute that workflow 2 times with input:
+
+
+
+```vm_name: vm_1```  and  ```vm_name: vm_1``` 
+
+
+When i turn on debug log, to see the line "Function get_attr called with template_id..." follow
+"https://github.com/openstack/vitrage/blob/stable/queens/vitrage/evaluator/template_functions/v2/functions.py"
+I saw that line appear only one time!
+
+I don't know it is bug or not, can u help me? 
+(my vitrage in queens version)
+
+Best regards.
+
+

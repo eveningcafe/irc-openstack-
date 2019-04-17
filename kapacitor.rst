@@ -36,7 +36,7 @@ Configuration
 
 Run command to define topic
 
-.. code:: bash
+.. code-block:: bash
 
 $ kapacitor define-topic-handler ./foward_to_vitrage.yaml
 

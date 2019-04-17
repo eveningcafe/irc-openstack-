@@ -77,7 +77,7 @@ Vitrage configuration:
     [zabbix]
     config_file = /etc/vitrage/kapacitor_conf.yaml
 
-2. Create ``/etc/vitrage/kapacitor_conf.yaml`` with this content
+3. Create ``/etc/vitrage/kapacitor_conf.yaml`` with this content
 
 .. code ::
 
@@ -86,7 +86,7 @@ Vitrage configuration:
       type: nova.host
       name: resouce name 
 
-(if type is nova.instance, you may replace ``name: resouce name`` by ''name: id of instance'')
+**Note** if type is nova.instance, you may replace ``name: resouce name`` by ''name: id of instance'')
 
 4. Restart vitrage service in devstack/openstack
 

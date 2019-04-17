@@ -1,0 +1,57 @@
+Kapacitor-Vitrage
+======================
+
+Kapacitor will send alert to vitrage by using [ exec handle ], send to messeage queue topic of vitrage.
+https://docs.influxdata.com/kapacitor/v1.5/working/alerts/
+
+Installation
+------------
+
+Copy the 'kapacitor_vitrage.py' script into the Kapacitor servers.
+
+.. code-block:: bash
+  $ cp kapacitor_vitrage.py /etc/kapacitor/kapacitor_vitrage.py
+  $ chmod 755 /etc/kapacitor/kapacitor_vitrage.py
+
+Configuration
+-------------
+
+1. Define topic , which use for alert publish to. Create file foward_to_vitrage.yaml:
+
+      | topic: foward_to_vitrage
+      | id: foward_to_vitrage
+      | kind: exec
+      | options:
+      | prog: '/usr/bin/python'
+      | args: ['/etc/kapacitor/kapacitor_vitrage.py','rabbit://<rabbit_user>:<rabbit_pass>@controller']      <--- Vitrage message bus url
+ 
+
+Run command to define topic
+
+$ kapacitor define-topic-handler ./foward_to_vitrage.yaml
+
+2. Asssign your Task to topic, in Tick script define that alert, add in "alert()" step:
+      
+      | ...
+      | |alert()
+      |  ...
+      |  .topic('foward_to_vitrage')
+
+
+In case your Task aready in topic and you don't want to add another, you can only add 'exec handler' to TICK scipt which define it.
+      
+      | ...
+      | |alert()
+      |  ...
+      |  .exec('/usr/bin/python', '/etc/kapacitor/kapacitor_vitrage.py', 'rabbit://<rabbit_user>:<rabbit_pass>@controller')    <--- Vitrage message bus url
+
+Run command define your task:
+
+.. code::
+
+   kapacitor define <task_name> -tick <tick_script>
+
+
+
+DONE
+

@@ -36,6 +36,8 @@ Configuration
 
 Run command to define topic
 
+.. code:: bash
+
 $ kapacitor define-topic-handler ./foward_to_vitrage.yaml
 
 2. Asssign your Task to topic, in Tick script define that alert, add in "alert()" step:

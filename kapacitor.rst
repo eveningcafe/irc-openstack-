@@ -4,19 +4,25 @@ Kapacitor-Vitrage
 Kapacitor will send alert to vitrage by using [ exec handle ], send to messeage queue topic of vitrage.
 https://docs.influxdata.com/kapacitor/v1.5/working/alerts/
 
+
 Installation
 ------------
 
 Copy the 'kapacitor_vitrage.py' script into the Kapacitor servers.
 
 .. code-block:: bash
+
   $ cp kapacitor_vitrage.py /etc/kapacitor/kapacitor_vitrage.py
   $ chmod 755 /etc/kapacitor/kapacitor_vitrage.py
+
 
 Configuration
 -------------
 
-1. Define topic , which use for alert publish to. Create file foward_to_vitrage.yaml:
+
+
+1. Define topic , which use for alert publish to. Create file ``foward_to_vitrage.yaml``:
+
 
       | topic: foward_to_vitrage
       | id: foward_to_vitrage
@@ -31,7 +37,8 @@ Run command to define topic
 $ kapacitor define-topic-handler ./foward_to_vitrage.yaml
 
 2. Asssign your Task to topic, in Tick script define that alert, add in "alert()" step:
-      
+
+
       | ...
       | |alert()
       |  ...
@@ -49,7 +56,7 @@ Run command define your task:
 
 .. code::
 
-   kapacitor define <task_name> -tick <tick_script>
+   $ kapacitor define <task_name> -tick <tick_script>
 
 
 

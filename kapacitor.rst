@@ -1,7 +1,7 @@
 Kapacitor-Vitrage
 ======================
 
-Kapacitor will send alert to vitrage by using [ exec handle ], send to messeage queue topic of vitrage.
+Kapacitor will send alert to vitrage by using [ exec-handle ], send to messeage queue topic of vitrage.
 https://docs.influxdata.com/kapacitor/v1.5/working/alerts/
 
 
@@ -29,7 +29,7 @@ Configuration
       | kind: exec
       | options:
       | prog: '/usr/bin/python'
-      | args: ['/etc/kapacitor/kapacitor_vitrage.py','rabbit://<rabbit_user>:<rabbit_pass>@controller']      <--- Vitrage message bus url
+      | args: ['/etc/kapacitor/kapacitor_vitrage.py','rabbit://<rabbit_user>:<rabbit_pass>@controller']   <--- Vitrage message bus url
  
 
 Run command to define topic
@@ -50,7 +50,7 @@ In case your Task aready in topic and you don't want to add another, you can onl
       | ...
       | |alert()
       |  ...
-      |  .exec('/usr/bin/python', '/etc/kapacitor/kapacitor_vitrage.py', 'rabbit://<rabbit_user>:<rabbit_pass>@controller')    <--- Vitrage message bus url
+      |  .exec('/usr/bin/python', '/etc/kapacitor/kapacitor_vitrage.py', 'rabbit://<rabbit_user>:<rabbit_pass>@controller')
 
 Run command define your task:
 

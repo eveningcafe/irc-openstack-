@@ -1,0 +1,2 @@
+{"series":[{"name":"example","tags":{"alertID":"example-host=controller","host":"controller","level":"CRITICAL","tag1":"num"},"columns":["time","duration","message","value"],"values":[["2019-04-17T10:47:40Z",0," example-host=controller",10]]},{"name":"example","tags":{"alertID":"example-host=compute02","host":"compute02","level":"CRITICAL","tag1":"num"},"columns":["time","duration","message","value"],"values":[["2019-04-17T10:45:20Z",0," example-host=compute02",10]]}]}
+

@@ -61,6 +61,34 @@ Run command define your task:
    $ kapacitor define <task_name> -tick <tick_script>
 
 
+Vitrage configuration:
+
+1. Add kapacitor to list of datasources in ``/etc/vitrage/vitrage.conf``
+
+.. code::
+
+    [datasources]
+    types = kapacitor,zabbix,nova.host,nova.instance,nova.zone,static_physical,aodh,cinder.volume,neutron.network,neutron.port,heat.stack
+
+2. Add section to ``/etc/vitrage/vitrage.conf``
+
+.. code::
+
+    [zabbix]
+    config_file = /etc/vitrage/kapacitor_conf.yaml
+
+2. Create ``/etc/vitrage/kapacitor_conf.yaml`` with this content
+
+.. code ::
+
+    zabbix:
+    - kapacitor_host: hostname of host kapacitor monitor
+      type: nova.host
+      name: resouce name 
+
+(if type is nova.instance, you may replace ``name: resouce name`` by ''name: id of instance'')
+
+4. Restart vitrage service in devstack/openstack
 
 DONE
-
+----

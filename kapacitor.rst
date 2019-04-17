@@ -31,7 +31,7 @@ Configuration
       | prog: '/usr/bin/python'
       | args: ['/etc/kapacitor/kapacitor_vitrage.py','rabbit://<rabbit_user>:<rabbit_pass>@controller']
 
-( rabbit://<rabbit_user>:<rabbit_pass>@controller is  Vitrage message bus url,  ``rabbit_user:rabbit_pass`` for devstack rabbitmq is ``stackrabbit/secret``)
+( **Note:** rabbit://<rabbit_user>:<rabbit_pass>@controller is  Vitrage message bus url,  ``rabbit_user:rabbit_pass`` for devstack rabbitmq is ``stackrabbit/secret``)
  
 
 Run command to define topic

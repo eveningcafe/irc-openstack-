@@ -1,5 +1,5 @@
 Kapacitor-Vitrage
-======================
+=================
 
 Kapacitor will send alert to vitrage by using [ exec-handle ], send to messeage queue topic of vitrage.
 https://docs.influxdata.com/kapacitor/v1.5/working/alerts/
@@ -32,7 +32,6 @@ Configuration
       | args: ['/etc/kapacitor/kapacitor_vitrage.py','rabbit://<rabbit_user>:<rabbit_pass>@controller']
 
  **Note:** rabbit://<rabbit_user>:<rabbit_pass>@controller is  Vitrage message bus url,  ``rabbit_user:rabbit_pass`` for devstack rabbitmq is ``stackrabbit/secret``
- 
 
 Run command to define topic
 
@@ -43,14 +42,12 @@ $ kapacitor define-topic-handler ./foward_to_vitrage.yaml
 
 2. Asssign your Task to topic, in Tick script define that alert, add in "alert()" step:
 
-
       | ...
       | |alert()
       |  ...
       |  .topic('foward_to_vitrage')
 
-
-In case your Task aready in topic and you don't want to add another, you can only add 'exec handler' to TICK scipt which define it.
+In case your Task aready in topic and you don't want to add another, you only need to do: append 'exec handler' to TICK scipt which define it.
       
       | ...
       | |alert()
@@ -77,15 +74,15 @@ Vitrage configuration:
 
 .. code::
 
-    [zabbix]
+    [kapacitor]
     config_file = /etc/vitrage/kapacitor_conf.yaml
 
 3. Create ``/etc/vitrage/kapacitor_conf.yaml`` with this content
 
 .. code ::
 
-    zabbix:
-    - kapacitor_host: hostname of host kapacitor monitor
+    kapacitor:
+    - kapacitor_host: hostname of host is raised alert by kapacitor
       type: nova.host
       name: resouce name 
 
@@ -95,3 +92,4 @@ Vitrage configuration:
 
 DONE
 ----
+
